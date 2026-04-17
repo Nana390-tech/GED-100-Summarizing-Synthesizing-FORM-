@@ -1,0 +1,738 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GED100/110 SA4 – Poster Project Preparation Activity</title>
+<style>
+  :root {
+    --teal: #2a7d7b;
+    --teal-light: #e6f4f4;
+    --gold: #c97d1a;
+    --gold-light: #fdf3e3;
+    --warm-bg: #faf8f5;
+    --border: #c8d8d8;
+    --text: #2c2c2c;
+    --muted: #5a6a6a;
+    --red: #c0392b;
+
+    /* Section palette */
+    --meta-bg:   #eef5fb;  --meta-border:   #6aaed6;
+    --def1-bg:   #f0edf8;  --def1-border:   #9b7fd4;
+    --r1-bg:     #edf8f2;  --r1-border:     #4caf82;
+    --r2-bg:     #fdf3ed;  --r2-border:     #e08050;
+    --r3-bg:     #fdfaed;  --r3-border:     #c9b52a;
+    --def2-bg:   #fdedf5;  --def2-border:   #d46f9b;
+    --synth-bg:  #edf8f8;  --synth-border:  #2a7d7b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--warm-bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page-wrap {
+    max-width: 880px;
+    margin: 28px auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.10);
+    overflow: hidden;
+  }
+
+  .header-band {
+    background: linear-gradient(135deg, var(--teal) 0%, #1a5c5a 100%);
+    color: #fff;
+    padding: 22px 30px 16px;
+  }
+  .header-band h1 { font-size: 17px; font-weight: 700; }
+  .header-band h2 { font-size: 13px; font-weight: 400; opacity:.88; margin-top:3px; }
+
+  .content { padding: 26px 30px; }
+
+  /* ── COLOUR KEY ── */
+  .colour-key {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding: 12px 14px;
+    background: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  .colour-key span { font-weight: 600; margin-right: 2px; }
+  .key-pill {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1.5px solid;
+    font-size: 11.5px;
+  }
+  .key-pill .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* Meta table */
+  .meta-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+  .meta-table td { border: 1px solid var(--border); padding: 7px 10px; vertical-align: top; }
+  .meta-table .label {
+    background: var(--teal-light); font-weight: 600;
+    color: var(--teal); white-space: nowrap; width: 170px;
+  }
+  .meta-table input {
+    width:100%; border:none; outline:none;
+    font-size:13px; font-family:inherit;
+    background: var(--meta-bg);
+    border-left: 3px solid var(--meta-border);
+    padding: 3px 6px; border-radius: 3px;
+  }
+
+  /* Instructions */
+  .instructions {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px; padding: 12px 16px;
+    margin-bottom: 20px; font-size: 13px;
+  }
+  .instructions p { margin-bottom:5px; }
+  .instructions ul { margin-left:18px; }
+  .instructions .warning { color: var(--red); font-weight:600; }
+
+  /* CLO box */
+  .clo-box {
+    background: var(--teal-light);
+    border: 1px solid var(--border);
+    border-radius: 6px; padding: 12px 16px;
+    margin-bottom: 20px; font-size: 13px;
+  }
+  .clo-box strong { color: var(--teal); }
+
+  /* Task headers */
+  .task-header {
+    background: linear-gradient(90deg, var(--teal) 0%, #3a9d9b 100%);
+    color: #fff; border-radius: 8px;
+    padding: 10px 16px; margin: 26px 0 14px;
+    font-size: 14px; font-weight: 700;
+  }
+  .task-header .pc { font-size: 11.5px; font-weight: 400; opacity: .9; margin-top: 4px; }
+
+  /* Section labels */
+  .section-label {
+    background: var(--teal); color: #fff;
+    font-size: 12px; font-weight: 700;
+    letter-spacing:.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 4px;
+    display: inline-block; margin-bottom: 8px;
+  }
+
+  /* Generic field block */
+  .field-block { margin-bottom: 16px; }
+  .field-block label {
+    display: block; font-weight: 600;
+    margin-bottom: 5px; font-size: 13px;
+  }
+
+  /* Textareas — base */
+  .field-block textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 6px; padding: 9px 11px;
+    font-family: inherit; font-size: 13.5px;
+    resize: none; min-height: 90px;
+    overflow: hidden;
+    background: #f9fdfd;
+    transition: border-color .2s, background .2s;
+  }
+  .field-block textarea:focus { border-color: var(--teal); outline: none; background: #fff; }
+
+  /* ── COLOUR ZONES ── applied to parent card/section ── */
+
+  /* Meta inputs */
+  .zone-meta input { background: var(--meta-bg) !important; border-left: 3px solid var(--meta-border) !important; }
+
+  /* Definition Task 1 */
+  .zone-def1 label { color: #6b4cb8; }
+  .zone-def1 textarea { background: var(--def1-bg); border-color: var(--def1-border); }
+  .zone-def1 textarea:focus { border-color: #6b4cb8; background: #fff; }
+
+  /* Resource 1 */
+  .zone-r1 label { color: #2a7a50; }
+  .zone-r1 textarea { background: var(--r1-bg); border-color: var(--r1-border); }
+  .zone-r1 textarea:focus { border-color: #2a7a50; background: #fff; }
+
+  /* Resource 2 */
+  .zone-r2 label { color: #b05a20; }
+  .zone-r2 textarea { background: var(--r2-bg); border-color: var(--r2-border); }
+  .zone-r2 textarea:focus { border-color: #b05a20; background: #fff; }
+
+  /* Resource 3 */
+  .zone-r3 label { color: #8a7a10; }
+  .zone-r3 textarea { background: var(--r3-bg); border-color: var(--r3-border); }
+  .zone-r3 textarea:focus { border-color: #8a7a10; background: #fff; }
+
+  /* Definition Task 2 */
+  .zone-def2 label { color: #9e2c6e; }
+  .zone-def2 textarea { background: var(--def2-bg); border-color: var(--def2-border); }
+  .zone-def2 textarea:focus { border-color: #9e2c6e; background: #fff; }
+
+  /* Synthesis draft */
+  .zone-synth label { color: #1a5c5a; }
+  .zone-synth textarea { background: var(--synth-bg); border-color: var(--synth-border); }
+  .zone-synth textarea:focus { border-color: #0d3c3a; background: #fff; }
+
+  /* Resource cards */
+  .resource-card {
+    border: 2px solid var(--border);
+    border-radius: 10px; padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+  .resource-card.card-r1 { border-color: var(--r1-border); background: #f6fdf9; }
+  .resource-card.card-r2 { border-color: var(--r2-border); background: #fdf8f5; }
+  .resource-card.card-r3 { border-color: var(--r3-border); background: #fefdf0; }
+
+  .resource-title { font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+  .card-r1 .resource-title { color: #2a7a50; }
+  .card-r2 .resource-title { color: #b05a20; }
+  .card-r3 .resource-title { color: #8a7a10; }
+
+  .resource-link { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .resource-link a { color: var(--teal); }
+
+  /* Def grids */
+  .def-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 18px;
+  }
+  @media(max-width:580px){ .def-grid { grid-template-columns: 1fr; } }
+
+  /* Synth card */
+  .synth-card {
+    border: 2px solid var(--synth-border);
+    border-radius: 10px; padding: 16px 18px;
+    background: var(--synth-bg); margin-bottom: 18px;
+  }
+  .synth-part-label { font-weight: 700; color: var(--teal); font-size: 13px; margin-bottom: 6px; }
+
+  /* Acknowledgment */
+  .ack-box {
+    background: #fff8e1; border: 1.5px solid var(--gold);
+    border-radius: 8px; padding: 14px 16px; margin-top: 24px;
+  }
+  .ack-box p { font-size: 13px; margin-bottom: 10px; }
+  .ack-box .ack-italic { font-style: italic; color: var(--muted); }
+
+  /* Signature */
+  .sig-area { margin-top: 14px; }
+  .sig-label { font-weight:600; font-size: 13px; color: var(--teal); margin-bottom: 6px; display:block; }
+  .sig-canvas-wrap {
+    border: 1.5px solid var(--border); border-radius: 8px;
+    background: #fff; display: inline-block; width: 100%;
+  }
+  #sigCanvas { display: block; width: 100%; height: 110px; cursor: crosshair; border-radius: 8px; }
+  .sig-btns { margin-top: 6px; display: flex; gap: 8px; }
+  .btn-sm {
+    font-size: 12px; padding: 5px 12px;
+    border-radius: 5px; border: none; cursor: pointer; font-family: inherit;
+  }
+  .btn-clear { background: #eee; color: #555; }
+  .btn-clear:hover { background: #ddd; }
+
+  /* Image upload zones */
+  .img-upload-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px; }
+  @media(max-width:520px){ .img-upload-row { grid-template-columns:1fr; } }
+
+  .img-zone {
+    border: 2.5px dashed var(--synth-border);
+    border-radius: 10px;
+    background: #f0fafa;
+    min-height: 170px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    cursor: pointer; position: relative;
+    overflow: hidden; transition: background .2s, border-color .2s;
+  }
+  .img-zone:hover { background: #dff2f2; border-color: #1a5c5a; }
+  .img-zone input[type=file] { display:none; }
+  .img-zone .placeholder-content {
+    display:flex; flex-direction:column; align-items:center;
+    gap:8px; padding:16px; text-align:center; pointer-events:none;
+  }
+  .img-zone .placeholder-content .icon { font-size:36px; }
+  .img-zone .placeholder-content p { font-size:12.5px; color:var(--muted); line-height:1.4; }
+  .img-zone .placeholder-content .img-label { font-weight:700; color:var(--teal); font-size:13px; }
+  .img-zone img.preview {
+    width:100%; height:100%; object-fit:contain;
+    position:absolute; top:0; left:0;
+    border-radius:8px; background:#fff;
+  }
+  .img-remove {
+    display:none; position:absolute; top:6px; right:6px;
+    background:rgba(0,0,0,.55); color:#fff;
+    border:none; border-radius:50%;
+    width:24px; height:24px; font-size:14px; line-height:24px;
+    text-align:center; cursor:pointer; z-index:5;
+  }
+  .img-zone:hover .img-remove { display:block; }
+  .img-caption { margin-top:6px; }
+  .img-caption input {
+    width:100%; border:1.5px solid var(--synth-border);
+    border-radius:6px; padding:6px 10px;
+    font-family:inherit; font-size:12.5px;
+    background: var(--synth-bg);
+  }
+  .img-caption input:focus { outline:none; border-color:#1a5c5a; background:#fff; }
+
+  /* Action buttons */
+  .action-bar {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-top: 28px; padding-top: 20px;
+    border-top: 2px dashed var(--border);
+  }
+  .btn {
+    padding: 10px 22px; border-radius: 8px; border: none;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: inherit; transition: all .2s;
+  }
+  .btn-save { background: var(--teal); color: #fff; }
+  .btn-save:hover { background: #1a5c5a; }
+  .btn-load { background: var(--gold); color: #fff; }
+  .btn-load:hover { background: #a86415; }
+  .btn-print { background: #fff; color: var(--teal); border: 2px solid var(--teal); }
+  .btn-print:hover { background: var(--teal-light); }
+
+  .footer-meta {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--muted);
+    margin-top: 22px; padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .page-wrap { box-shadow: none; border-radius: 0; margin: 0; max-width: 100%; }
+    .action-bar, .sig-btns, .btn, .colour-key { display: none !important; }
+    .header-band { background: #1a5c5a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .task-header { background: #2a7d7b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-label { background: #2a7d7b !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    textarea { border: 1px solid #aaa !important; background: #fff !important; resize: none; }
+    .meta-table .label { background: #e6f4f4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .resource-card, .synth-card, .ack-box { break-inside: avoid; }
+    #sigCanvas { border: 1px solid #aaa; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <div class="header-band">
+    <h1>GED100/110 SA4 – Poster Project Preparation Activity</h1>
+    <h2>Class Activity: Summarising &amp; Synthesising &nbsp;|&nbsp; Example Template</h2>
+  </div>
+
+  <div class="content">
+
+    <!-- COLOUR KEY -->
+    <div class="colour-key">
+      <span>Colour Guide:</span>
+      <div class="key-pill" style="background:#eef5fb;border-color:#6aaed6;color:#1a5080">
+        <div class="dot" style="background:#6aaed6"></div> Your Details
+      </div>
+      <div class="key-pill" style="background:#f0edf8;border-color:#9b7fd4;color:#5a2ea0">
+        <div class="dot" style="background:#9b7fd4"></div> Task 1 – Definitions
+      </div>
+      <div class="key-pill" style="background:#edf8f2;border-color:#4caf82;color:#1a6a40">
+        <div class="dot" style="background:#4caf82"></div> Resource 1 (Prospects)
+      </div>
+      <div class="key-pill" style="background:#fdf3ed;border-color:#e08050;color:#8a3a10">
+        <div class="dot" style="background:#e08050"></div> Resource 2 (My World of Work)
+      </div>
+      <div class="key-pill" style="background:#fdfaed;border-color:#c9b52a;color:#6a5a00">
+        <div class="dot" style="background:#c9b52a"></div> Resource 3 (Your Choice)
+      </div>
+      <div class="key-pill" style="background:#fdedf5;border-color:#d46f9b;color:#7a1a4a">
+        <div class="dot" style="background:#d46f9b"></div> Task 2 – Definitions
+      </div>
+      <div class="key-pill" style="background:#edf8f8;border-color:#2a7d7b;color:#1a5c5a">
+        <div class="dot" style="background:#2a7d7b"></div> Poster Draft (Synthesis)
+      </div>
+    </div>
+
+    <!-- META TABLE -->
+    <table class="meta-table zone-meta">
+      <tr>
+        <td class="label">Student Name</td>
+        <td><input type="text" id="studentName" placeholder="Enter your full name…" style="background:var(--meta-bg);border-left:3px solid var(--meta-border);padding:3px 6px;border-radius:3px;"></td>
+        <td class="label" style="width:130px">Student ID</td>
+        <td><input type="text" id="studentID" placeholder="e.g. H00123456" style="background:var(--meta-bg);border-left:3px solid var(--meta-border);padding:3px 6px;border-radius:3px;"></td>
+      </tr>
+      <tr>
+        <td class="label">Unit Code &amp; Title</td>
+        <td>EDU05033NU21 – Develop English Language Skills</td>
+        <td class="label">Semester</td>
+        <td><input type="text" id="semester" placeholder="e.g. 202520" style="background:var(--meta-bg);border-left:3px solid var(--meta-border);padding:3px 6px;border-radius:3px;"></td>
+      </tr>
+      <tr>
+        <td class="label">Qualification Code &amp; Title</td>
+        <td colspan="3">All Diploma Qualifications</td>
+      </tr>
+    </table>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions">
+      <p><strong>Instructions:</strong></p>
+      <ul>
+        <li>Follow the instructions for each task carefully and complete them.</li>
+        <li>Submit this project preparation activity worksheet as evidence of your research and understanding of summarising and synthesising.</li>
+        <li class="warning">If you don't submit this worksheet in your attempt, your grade will be NOT YET COMPETENT for Summative Assessment 4: PC5.1, PC5.2, PC5.3, PC5.4, PC5.5, PC6.3 and you will FAIL the assessment.</li>
+      </ul>
+    </div>
+
+    <!-- CLO -->
+    <div class="clo-box">
+      <strong>Target Course Learning Outcomes:</strong><br>
+      <strong>CLO5:</strong> Summarise and synthesise ideas from oral and written communication to relate to an audience.<br>
+      <strong>CLO6:</strong> Utilise appropriate study tools and techniques to enhance learning process.
+    </div>
+
+    <!-- ══ TASK 1 ══ -->
+    <div class="task-header">
+      Task 1 – Summarising
+      <div class="pc">PC5.1 Define summarising and list main components of a summary &nbsp;|&nbsp; PC5.2 Apply strategies for summarising &nbsp;|&nbsp; PC5.3 Write a well-constructed summary highlighting the author's main points &nbsp;|&nbsp; PC6.3 Make notes about key points while listening or reading</div>
+    </div>
+
+    <span class="section-label">Define a Summary &amp; List Its Main Components</span>
+
+    <div class="def-grid zone-def1" style="margin-top:10px;">
+      <div class="field-block">
+        <label>What is a summary?</label>
+        <textarea id="defSummary" placeholder="Write your definition of a summary here…" rows="5"></textarea>
+      </div>
+      <div class="field-block">
+        <label>What are its main components?</label>
+        <textarea id="compSummary" placeholder="List the main components of a summary here…" rows="5"></textarea>
+      </div>
+    </div>
+
+    <span class="section-label">Apply Strategies for Summarising</span>
+
+    <div class="instructions" style="margin-top:10px;">
+      <p><strong>Tasks:</strong></p>
+      <ul>
+        <li>Go to the two websites provided in this worksheet.</li>
+        <li>Choose a job title to present in your Oral Poster Project. This should ideally be the job you want to do in the future.</li>
+        <li>Do research about this job title using <strong>2 different resources</strong> (3 if you are a group of 3).</li>
+        <li>Summarize the information you find and complete Task 1.</li>
+      </ul>
+    </div>
+
+    <!-- RESOURCE 1 -->
+    <div class="resource-card card-r1 zone-r1">
+      <div class="resource-title">📌 Resource 1 – Prospects</div>
+      <div class="resource-link">Website: <a href="https://www.prospects.ac.uk/job-profiles" target="_blank">https://www.prospects.ac.uk/job-profiles</a></div>
+
+      <div class="field-block">
+        <label>🎯 Chosen Job Title (focus of your Poster Presentation)</label>
+        <textarea id="jobTitle" placeholder="Write the job title you want to present. Choose a job you would like to do in the future — it may or may not be related to your Diploma Program." rows="2"></textarea>
+      </div>
+
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Summarise the most important information related to the following topics:</p>
+
+      <div class="field-block">
+        <label>Job Description</label>
+        <textarea id="r1Desc" placeholder="Summarise the job description…" rows="4"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Qualifications</label>
+        <textarea id="r1Qual" placeholder="Summarise the qualifications required…" rows="4"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Skills</label>
+        <textarea id="r1Skills" placeholder="Summarise the key skills needed…" rows="4"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Career Prospects / Opportunities <span style="font-weight:400;color:var(--muted)">(You can find ideas for "advantages" here)</span></label>
+        <textarea id="r1Career" placeholder="Summarise the career prospects and opportunities…" rows="4"></textarea>
+      </div>
+    </div>
+
+    <!-- RESOURCE 2 -->
+    <div class="resource-card card-r2 zone-r2">
+      <div class="resource-title">📌 Resource 2 – My World of Work</div>
+      <div class="resource-link">Website: <a href="https://www.myworldofwork.co.uk/my-career-options/job-categories" target="_blank">https://www.myworldofwork.co.uk/my-career-options/job-categories</a></div>
+
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Summarise the most important information related to the following topics:</p>
+
+      <div class="field-block">
+        <label>Working Hours</label>
+        <textarea id="r2Hours" placeholder="Summarise information about working hours…" rows="4"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Working Conditions: Environment &amp; Travel</label>
+        <textarea id="r2Conditions" placeholder="Summarise the working environment and travel requirements…" rows="4"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Responsibilities <span style="font-weight:400;color:var(--muted)">(You can find ideas for "disadvantages" here)</span></label>
+        <textarea id="r2Resp" placeholder="Summarise the key responsibilities…" rows="4"></textarea>
+      </div>
+    </div>
+
+    <!-- RESOURCE 3 -->
+    <div class="resource-card card-r3 zone-r3">
+      <div class="resource-title">📌 Resource 3 – Your Choice <span style="font-weight:400;font-size:12px;color:var(--muted)">(website, YouTube video, or podcast)</span></div>
+
+      <div class="field-block">
+        <label>Title of the online resource (if applicable)</label>
+        <textarea id="r3Title" placeholder="e.g. 'Career Path of a Software Engineer' – YouTube video" rows="2"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Link (if applicable)</label>
+        <textarea id="r3Link" placeholder="e.g. https://www.ft.com/video/4dbbad4f-1f61-463a-9a5c-a39aa69e1d99" rows="2"></textarea>
+      </div>
+      <div class="field-block">
+        <label>Summary of the information from this resource</label>
+        <textarea id="r3Summary" placeholder="Summarise the most important information you found from this resource…" rows="5"></textarea>
+      </div>
+    </div>
+
+    <!-- ══ TASK 2 ══ -->
+    <div class="task-header">
+      Task 2 – Synthesising
+      <div class="pc">PC5.4 Define synthesising and list the main components of a synthesis &nbsp;|&nbsp; PC5.5 Apply techniques of synthesising</div>
+    </div>
+
+    <span class="section-label">Define a Synthesis &amp; List Its Main Components</span>
+
+    <div class="def-grid zone-def2" style="margin-top:10px;">
+      <div class="field-block">
+        <label>What is a synthesis?</label>
+        <textarea id="defSynth" placeholder="Write your definition of a synthesis here…" rows="5"></textarea>
+      </div>
+      <div class="field-block">
+        <label>What are its main components?</label>
+        <textarea id="compSynth" placeholder="List the main components of a synthesis here…" rows="5"></textarea>
+      </div>
+    </div>
+
+    <span class="section-label">Apply Strategies for Synthesising</span>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 14px;">Look at your notes in Task 1 again. Combine the information from 2 different resources and prepare the main content of your Poster in the sections below.</p>
+
+    <div class="synth-card zone-synth">
+      <div class="resource-title" style="color:var(--teal);margin-bottom:12px;">🗂️ My Oral Poster Draft – <em style="font-weight:400;font-size:13px;">(What you are going to say in your presentation)</em></div>
+
+      <div class="field-block">
+        <div class="synth-part-label">Part 1 – Title &amp; Introduction</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:8px;">Write your and your partner's name &amp; HCT IDs, the course name, and your chosen job title. Upload up to two images to illustrate your main ideas.</p>
+        <textarea id="synthPart1" placeholder="e.g. Names: … | IDs: … | Course: GED100 | Job Title: …" rows="4"></textarea>
+
+        <div class="img-upload-row" style="margin-top:12px;">
+          <!-- Image 1 -->
+          <div>
+            <div class="img-zone" id="zone1" onclick="document.getElementById('imgInput1').click()">
+              <input type="file" id="imgInput1" accept="image/*" onchange="handleImg(event,'zone1','img1','cap1')">
+              <div class="placeholder-content">
+                <div class="icon">🖼️</div>
+                <div class="img-label">Image 1</div>
+                <p>Click to upload<br><span style="font-size:11px;">JPG, PNG, GIF, WEBP</span></p>
+              </div>
+              <img class="preview" id="img1" src="" alt="" style="display:none;">
+              <button class="img-remove" id="rem1" title="Remove image" onclick="removeImg(event,'zone1','img1','rem1','imgInput1','cap1')">✕</button>
+            </div>
+            <div class="img-caption">
+              <input type="text" id="cap1" placeholder="Image 1 caption / description…">
+            </div>
+          </div>
+          <!-- Image 2 -->
+          <div>
+            <div class="img-zone" id="zone2" onclick="document.getElementById('imgInput2').click()">
+              <input type="file" id="imgInput2" accept="image/*" onchange="handleImg(event,'zone2','img2','cap2')">
+              <div class="placeholder-content">
+                <div class="icon">🖼️</div>
+                <div class="img-label">Image 2</div>
+                <p>Click to upload<br><span style="font-size:11px;">JPG, PNG, GIF, WEBP</span></p>
+              </div>
+              <img class="preview" id="img2" src="" alt="" style="display:none;">
+              <button class="img-remove" id="rem2" title="Remove image" onclick="removeImg(event,'zone2','img2','rem2','imgInput2','cap2')">✕</button>
+            </div>
+            <div class="img-caption">
+              <input type="text" id="cap2" placeholder="Image 2 caption / description…">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-block" style="margin-top:6px;">
+        <div class="synth-part-label">Part 2 – Objectives &amp; Poster Content</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:6px;">What information will you illustrate and in what order? For example: general information, advantages, disadvantages, qualifications and skills. Remember to add the sources.</p>
+        <textarea id="synthPart2" placeholder="e.g. 1. General Information (Source: Prospects)&#10;2. Advantages / Career Prospects (Source: Prospects)&#10;3. Disadvantages / Responsibilities (Source: My World of Work)&#10;4. Qualifications &amp; Skills (Source: …)&#10;5. Our Opinion / Conclusion" rows="8"></textarea>
+      </div>
+    </div>
+
+    <!-- ACKNOWLEDGMENT & SIGNATURE -->
+    <div class="ack-box">
+      <p><strong>Student Acknowledgment:</strong></p>
+      <p class="ack-italic">I confirm that the completion of this worksheet is my own work to fulfil <strong>PC5.1, PC5.2, PC5.3, PC5.4, PC5.5, PC6.3</strong> of Summative Assessment 4, Oral Poster Presentation.</p>
+
+      <div class="sig-area">
+        <span class="sig-label">✍️ Student Signature (draw below):</span>
+        <div class="sig-canvas-wrap">
+          <canvas id="sigCanvas" width="800" height="110"></canvas>
+        </div>
+        <div class="sig-btns">
+          <button class="btn-sm btn-clear" onclick="clearSig()">Clear Signature</button>
+          <span style="font-size:11px;color:var(--muted);align-self:center;">Use your mouse or finger to sign above.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-bar">
+      <button class="btn btn-save" onclick="saveData()">💾 Save Progress (JSON)</button>
+      <button class="btn btn-load" onclick="document.getElementById('fileInput').click()">📂 Load Saved File</button>
+      <button class="btn btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <input type="file" id="fileInput" accept=".json" style="display:none" onchange="loadData(event)">
+    </div>
+
+    <div class="footer-meta">
+      <span>Document Title: Poster Project Preparation Activity</span>
+      <span>Version: V1 &nbsp;|&nbsp; Date: February 2025 &nbsp;|&nbsp; Owner: HCT &nbsp;|&nbsp; Page: 1</span>
+    </div>
+
+    <div style="text-align:center;margin-top:18px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);letter-spacing:.3px;">
+      Created by <strong style="color:var(--teal);">Nazila Motahari</strong>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function autoResize(ta) {
+  ta.style.height = 'auto';
+  ta.style.height = ta.scrollHeight + 'px';
+}
+function initAutoResize() {
+  document.querySelectorAll('textarea').forEach(ta => {
+    autoResize(ta);
+    ta.addEventListener('input', () => autoResize(ta));
+  });
+}
+
+function handleImg(e, zoneId, imgId, capId) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const zone = document.getElementById(zoneId);
+    const img  = document.getElementById(imgId);
+    const rem  = document.getElementById(zoneId.replace('zone','rem'));
+    img.src = ev.target.result;
+    img.style.display = 'block';
+    zone.querySelector('.placeholder-content').style.display = 'none';
+    rem.style.display = 'block';
+    zone.style.cursor = 'default';
+    zone.onclick = null;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeImg(e, zoneId, imgId, remId, inputId, capId) {
+  e.stopPropagation();
+  const zone = document.getElementById(zoneId);
+  const img  = document.getElementById(imgId);
+  const rem  = document.getElementById(remId);
+  img.src = ''; img.style.display = 'none';
+  rem.style.display = 'none';
+  zone.querySelector('.placeholder-content').style.display = 'flex';
+  zone.style.cursor = 'pointer';
+  zone.onclick = () => document.getElementById(inputId).click();
+  document.getElementById(inputId).value = '';
+  document.getElementById(capId).value = '';
+}
+
+const canvas = document.getElementById('sigCanvas');
+const ctx = canvas.getContext('2d');
+let drawing = false, lastX = 0, lastY = 0;
+
+function getPos(e) {
+  const r = canvas.getBoundingClientRect();
+  const sx = canvas.width / r.width, sy = canvas.height / r.height;
+  if (e.touches) return [(e.touches[0].clientX - r.left)*sx, (e.touches[0].clientY - r.top)*sy];
+  return [(e.clientX - r.left)*sx, (e.clientY - r.top)*sy];
+}
+canvas.addEventListener('mousedown', e => { drawing=true; [lastX,lastY]=getPos(e); });
+canvas.addEventListener('mousemove', e => {
+  if (!drawing) return;
+  const [x,y]=getPos(e);
+  ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y);
+  ctx.strokeStyle='#1a2a2a'; ctx.lineWidth=2; ctx.lineCap='round'; ctx.stroke();
+  [lastX,lastY]=[x,y];
+});
+canvas.addEventListener('mouseup', ()=>drawing=false);
+canvas.addEventListener('mouseleave', ()=>drawing=false);
+canvas.addEventListener('touchstart', e=>{ e.preventDefault(); drawing=true; [lastX,lastY]=getPos(e); },{passive:false});
+canvas.addEventListener('touchmove', e=>{
+  e.preventDefault(); if(!drawing) return;
+  const [x,y]=getPos(e);
+  ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y);
+  ctx.strokeStyle='#1a2a2a'; ctx.lineWidth=2; ctx.lineCap='round'; ctx.stroke();
+  [lastX,lastY]=[x,y];
+},{passive:false});
+canvas.addEventListener('touchend', ()=>drawing=false);
+function clearSig(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+const fields = [
+  'studentName','studentID','semester',
+  'defSummary','compSummary','jobTitle',
+  'r1Desc','r1Qual','r1Skills','r1Career',
+  'r2Hours','r2Conditions','r2Resp',
+  'r3Title','r3Link','r3Summary',
+  'defSynth','compSynth','synthPart1','synthPart2','cap1','cap2'
+];
+
+function saveData(){
+  const data={};
+  fields.forEach(id=>{ const el=document.getElementById(id); data[id]=el?el.value:''; });
+  data._signature=canvas.toDataURL();
+  data._img1 = document.getElementById('img1').src || '';
+  data._img2 = document.getElementById('img2').src || '';
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const name=data.studentID||'student';
+  a.href=url; a.download=`SA4_Worksheet_${name}.json`; a.click(); URL.revokeObjectURL(url);
+}
+
+function loadData(e){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const data=JSON.parse(ev.target.result);
+      fields.forEach(id=>{ const el=document.getElementById(id); if(el&&data[id]!==undefined) el.value=data[id]; });
+      document.querySelectorAll('textarea').forEach(ta => autoResize(ta));
+      ['1','2'].forEach(n => {
+        const src = data[`_img${n}`];
+        if (src && src.length > 10) {
+          const img = document.getElementById(`img${n}`);
+          const zone = document.getElementById(`zone${n}`);
+          const rem  = document.getElementById(`rem${n}`);
+          img.src = src; img.style.display = 'block';
+          zone.querySelector('.placeholder-content').style.display = 'none';
+          rem.style.display = 'block';
+          zone.style.cursor = 'default';
+          zone.onclick = null;
+        }
+      });
+      if(data._signature){ const img=new Image(); img.onload=()=>{ ctx.clearRect(0,0,canvas.width,canvas.height); ctx.drawImage(img,0,0); }; img.src=data._signature; }
+    } catch{ alert('Could not read file. Make sure it is a valid SA4 worksheet JSON.'); }
+  };
+  reader.readAsText(file); e.target.value='';
+}
+
+initAutoResize();
+</script>
+</body>
+</html>
